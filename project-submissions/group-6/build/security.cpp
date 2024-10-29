@@ -317,13 +317,15 @@ int SecureLogger::init(string token, string filename)
 
         // check if a file is a regular file or not
         //make a new filename with extension .txt
-        cout<<filename<<endl;
-
+        std::filesystem::path p(filename);
         
-        if(filesystem::is_symlink(filename) )
+        if(filesystem::is_symlink(p))
         {
-            // cerr << "File is not a regular file" << endl;
+            cerr << "File is not a regular file" << endl;
             exit(255);
+        }
+        else{
+            cout << "File is a regular file" << endl;
         }
 
 
