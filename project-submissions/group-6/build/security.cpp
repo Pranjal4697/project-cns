@@ -317,12 +317,12 @@ int SecureLogger::init(string token, string filename)
 
         // check if a file is a regular file or not
 
-        if(filesystem::is_regular_file(filename)==false)
+        if(filesystem::is_symlink(filename) )
         {
             // cerr << "File is not a regular file" << endl;
             exit(255);
         }
-        
+
 
         // create a new file given the relative path as filename
 
