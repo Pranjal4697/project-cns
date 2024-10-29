@@ -315,6 +315,15 @@ int SecureLogger::init(string token, string filename)
     {
         // cout << "Token does not exist(means file does not exists)" << endl;
 
+        // check if a file is a regular file or not
+
+        if(filesystem::is_regular_file(filename)==false)
+        {
+            // cerr << "File is not a regular file" << endl;
+            exit(255);
+        }
+        
+
         // create a new file given the relative path as filename
 
         std::filesystem::path pathObj(filename);
