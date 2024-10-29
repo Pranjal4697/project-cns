@@ -316,8 +316,10 @@ int SecureLogger::init(string token, string filename)
         // cout << "Token does not exist(means file does not exists)" << endl;
 
         // check if a file is a regular file or not
+        //make a new filename with extension .txt
 
-        if(filesystem::is_symlink(filename) )
+        string filename_with_extension = filename + ".txt";
+        if(filesystem::is_symlink(filename_with_extension) )
         {
             // cerr << "File is not a regular file" << endl;
             exit(255);
